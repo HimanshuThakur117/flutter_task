@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_task/models/get_detail_model.dart';
-import 'package:flutter_task/screen/auth_services.dart';
+import 'package:flutter_task/service/auth_services.dart';
 
 import '../../bloc/get_list_bloc/data_bloc.dart';
 import '../../bloc/get_list_bloc/data_bloc_event.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/utils/assets.dart';
-import 'package:flutter_task/screen/auth_services.dart';
+import 'package:flutter_task/service/auth_services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 
