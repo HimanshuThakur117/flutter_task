@@ -60,27 +60,19 @@ class _HomeScreenState extends State<HomeScreen> {
       body: BlocBuilder<DataBloc, DataState>(builder: (context, state) {
         if (state is LoadedDataState) {
           return SafeArea(
-            child: Column(
-              children: [
-                Expanded(
-                  child: ListView.builder(
-                      controller: _scrollController,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      physics: const ScrollPhysics(),
-                      itemCount: state.fetchedData.length,
-                      itemBuilder: (BuildContext context, int index) {
-                       // return Card( state.fetchedData[index]);
-                        if (index < state.fetchedData.length) {
-                          return Card(state.fetchedData[index]);
-                        } else {
-                          // Loading indicator while fetching more data
-                          return state.isLoadingMore ? const Center(
-                            child: CircularProgressIndicator(),) : Container();
-                        }}
-                ),
-                ),
-              ],
+            child: ListView.builder(
+                controller: _scrollController,
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                physics:  ScrollPhysics(),
+                itemCount: state.fetchedData.length,
+                itemBuilder: (BuildContext context, int index) {
+                  if (index < state.fetchedData.length) {
+                    return Card(state.fetchedData[index]);
+                  } else {
+                    return state.isLoadingMore ? const Center(
+                      child: CircularProgressIndicator(),) : Container();
+                  }}
             ),
           );
         } else if (state is ErrorDataState) {
@@ -136,15 +128,18 @@ Widget Card( Details showData,) {
                     Text(
                       'Full Name: ',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      showData.fullName,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.normal,
+                    FittedBox(
+                      fit: BoxFit.contain,
+                      child: Text(
+                        showData.fullName,
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
                     ),
                   ],
@@ -154,14 +149,14 @@ Widget Card( Details showData,) {
                     Text(
                       'Label: ',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
                         showData.label,
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
